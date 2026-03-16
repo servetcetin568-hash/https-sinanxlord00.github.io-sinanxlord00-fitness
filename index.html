@@ -1,0 +1,311 @@
+<!DOCTYPE html><html lang="tr">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sinan Fitness Hub</title><style>
+
+:root{
+--bg:#111;
+--card:#1e1e1e;
+--text:white;
+}
+
+.light{
+--bg:#f4f4f4;
+--card:white;
+--text:#111;
+}
+
+body{
+margin:0;
+font-family:Arial;
+background:var(--bg);
+color:var(--text);
+}
+
+/* NAVBAR */
+
+.navbar{
+background:black;
+padding:15px;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+}
+
+.navbar button{
+padding:10px 18px;
+border:none;
+background:#ff9800;
+color:white;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* SAYFA */
+
+.page{
+display:none;
+padding:40px;
+max-width:900px;
+margin:auto;
+}
+
+.active{
+display:block;
+}
+
+/* CARD */
+
+.card{
+background:var(--card);
+padding:20px;
+border-radius:10px;
+margin:20px 0;
+}
+
+/* BUTTON */
+
+.btn{
+padding:10px 16px;
+border:none;
+background:#ff9800;
+color:white;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* INPUT */
+
+input,textarea{
+padding:10px;
+border:none;
+border-radius:6px;
+margin:5px;
+width:100%;
+}
+
+/* YORUM */
+
+.commentBox{
+background:#1e1e1e;
+padding:10px;
+border-radius:6px;
+margin-top:10px;
+}
+
+/* FOOTER */
+
+.creator{
+text-align:center;
+margin-top:40px;
+font-size:14px;
+opacity:0.8;
+}
+
+.creator span{
+color:#ff9800;
+font-weight:bold;
+}
+
+</style></head><body><!-- MENÜ --><div class="navbar"><button onclick="openPage('home')">Ana Sayfa</button>
+<button onclick="openPage('program')">Fitness</button>
+<button onclick="openPage('bmi')">BMI</button>
+<button onclick="openPage('films')">Filmler</button>
+<button onclick="openPage('games')">Oyunlar</button>
+<button onclick="openPage('boykot')">Boykot</button>
+<button onclick="openPage('admin')">Admin</button>
+<button onclick="toggleMode()">🌙 Mod</button>
+
+</div><!-- ANA SAYFA --><div id="home" class="page active"><div class="card">
+<h2>Motivasyon</h2>
+<p style="font-size:20px">
+Disiplin güçlü bir vücut ve karakterin temelidir.
+</p>
+</div><div class="card">
+<h2>Hadis</h2>
+<p>
+“İnsanların en hayırlısı insanlara faydalı olandır.”
+</p>
+</div><div class="card"><h2>Blog: Cristiano Ronaldo Disiplini</h2><p>Cristiano Ronaldo modern futbol tarihinin en disiplinli sporcularından biridir.
+Başarısının arkasında yalnızca yetenek değil, inanılmaz bir çalışma ahlakı vardır.
+
+Ronaldo genç yaşlardan itibaren antrenmanlara herkesten önce gelip herkesten sonra
+ayrılan bir sporcu olarak bilinir. Fiziksel gücünü artırmak için ağırlık
+antrenmanları, sprint çalışmaları ve özel diyet programları uygular.
+
+Birçok futbolcu sezon dışında dinlenirken Ronaldo çalışmaya devam eder.
+Bu nedenle 30 yaşından sonra bile dünyanın en formda sporcularından biri
+olarak kalmayı başarmıştır.
+
+Onun başarısının sırrı üç kelimede özetlenebilir:
+
+Disiplin. Çalışma. Azim.
+
+</p></div><!-- YORUM YAZ --><div class="card"><h3>Yorum Yaz</h3><input id="isim" placeholder="Adınız">
+<textarea id="yorum" placeholder="Yorum yaz"></textarea><button class="btn" onclick="yorumEkle()">Gönder</button>
+
+<div id="yorumSlider"></div></div></div><!-- FITNESS --><div id="program" class="page"><h2>Fitness Programı</h2><div class="card"><h3>1.Gün - Sırt & Biceps</h3>V Bar Lat Pulldown - 5x8-10<br>
+Reverse Grip Lat Pulldown - 4x12-15 (Son set drop)<br>
+Seated Row - 4x10-12<br>
+One Arm Machine Row - 3x10+10 (Superset)<br>
+Straight Arm Pulldown - 4x15-20<br>
+Biceps Curl - 4x12-15<br>
+Barbell Curl Machine<br>
+Superset Dumbell Hammer Curl - 4x10-12
+
+</div><div class="card"><h3>2.Gün - Göğüs & Arka Kol</h3>Bench Press - 5x8-10<br>
+Cable Crossover - 4x12-15 (Son set drop)<br>
+Dumbell Fly - 4x10-12<br>
+Incline Smith Machine Press - 5x10-12<br>
+Incline Cable Fly - 3x15-20<br>
+Rope Pushdown - 4x12-15<br>
+Overhead Rope Extension Superset V Bar Pushdown - 4x10/10<br>
+One Arm Cable Kickback - 3x15
+
+</div><div class="card"><h3>4.Gün - Omuz & Kol</h3>Shoulder Press - 5x8-10<br>
+Lateral Raises - 5x10-12<br>
+Face Pull - 3x15-20<br>
+Dumbell Front Raises Superset Raises - 4x12+12<br>
+Barbell / Dumbell Shrug - 4x10-12<br>
+Triceps Pushdown Superset Düz Bar Cable Biceps Curl - 4x10/10<br>
+Reverse Triceps Pushdown Superset Rope Hammer Curl - 4x10/10<br>
+Dumbell Bent Over Lateral - 4x10+10 (Drop set)
+
+</div></div><!-- BMI --><div id="bmi" class="page"><h2>BMI Hesaplama</h2><div class="card"><input id="kilo" placeholder="Kilo">
+<input id="boy" placeholder="Boy cm"><br><br>
+
+<button class="btn" onclick="bmi()">Hesapla</button>
+
+<p id="bmiSonuc"></p></div></div><!-- FILMS --><div id="films" class="page"><h2>Sevdiğim Filmler</h2><div class="card">Rambo</div>
+<div class="card">Avengement</div>
+<div class="card">Close Range</div></div><!-- GAMES --><div id="games" class="page"><h2>Oynadığım Oyunlar</h2><div class="card">
+FC Mobile<br>
+İsim: sinanxlord<br>
+ID: 982309458837102594
+</div><div class="card">
+PUBG Mobile<br>
+İsim: TC Sinan<br>
+ID: 51392805274
+</div></div><!-- BOYKOT --><div id="boykot" class="page"><h2>Boykot Kontrol</h2><div class="card"><input id="urunAra" placeholder="Marka yaz"><button class="btn" onclick="boykotAra()">Kontrol</button>
+
+<p id="boykotSonuc"></p></div></div><!-- ADMIN --><div id="admin" class="page"><h2>Admin Panel</h2><div class="card"><input id="adminUser" placeholder="Kullanıcı">
+<input id="adminPass" type="password" placeholder="Şifre"><br><br>
+
+<button class="btn" onclick="adminLogin()">Giriş</button>
+
+<p id="adminStatus"></p></div></div><div class="creator">
+Site Yapımcısı: <span>sinanxlord00</span>
+</div><script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyCFp4oHYalBK0vOhqfIV3G4djh3hTsfDjs",
+authDomain: "sinanxlord-site.firebaseapp.com",
+projectId: "sinanxlord-site",
+storageBucket: "sinanxlord-site.firebasestorage.app",
+messagingSenderId: "917262484111",
+appId: "1:917262484111:web:6958298b242198b6c526fa",
+measurementId: "G-7LD7653MD0"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+/* SAYFA */
+
+window.openPage=function(page){
+let pages=document.querySelectorAll(".page");
+pages.forEach(p=>p.classList.remove("active"));
+document.getElementById(page).classList.add("active");
+}
+
+/* MOD */
+
+window.toggleMode=function(){
+document.body.classList.toggle("light");
+}
+
+/* BMI */
+
+window.bmi=function(){
+let kilo=document.getElementById("kilo").value;
+let boy=document.getElementById("boy").value/100;
+let sonuc=kilo/(boy*boy);
+document.getElementById("bmiSonuc").innerText="BMI: "+sonuc.toFixed(2);
+}
+
+/* YORUM */
+
+const yorumList=document.getElementById("yorumSlider");
+
+window.yorumEkle=async function(){
+
+let isim=document.getElementById("isim").value;
+let yorum=document.getElementById("yorum").value;
+
+if(isim=="" || yorum=="") return;
+
+await addDoc(collection(db,"yorumlar"),{
+isim:isim,
+yorum:yorum
+});
+
+document.getElementById("yorum").value="";
+}
+
+onSnapshot(collection(db,"yorumlar"),(snapshot)=>{
+
+yorumList.innerHTML="";
+
+snapshot.forEach((docu)=>{
+
+let data=docu.data();
+
+yorumList.innerHTML+=`
+<div class="commentBox">
+<b>${data.isim}</b><br>
+${data.yorum}
+</div>
+`;
+
+});
+
+});
+
+/* ADMIN */
+
+window.adminLogin=function(){
+
+let u=document.getElementById("adminUser").value;
+let p=document.getElementById("adminPass").value;
+
+if(u=="admin" && p=="sinanasln890"){
+document.getElementById("adminStatus").innerText="Admin giriş başarılı";
+}else{
+document.getElementById("adminStatus").innerText="Hatalı giriş";
+}
+
+}
+
+/* BOYKOT */
+
+let boykotMarkalar=["coca cola","pepsi","nestle","starbucks","mcdonalds"];
+
+window.boykotAra=function(){
+
+let urun=document.getElementById("urunAra").value.toLowerCase();
+
+if(boykotMarkalar.includes(urun)){
+document.getElementById("boykotSonuc").innerHTML="❌ Boykot listesinde";
+}else{
+document.getElementById("boykotSonuc").innerHTML="✅ Listede bulunamadı";
+}
+
+}
+
+</script></body>
+  </html>
